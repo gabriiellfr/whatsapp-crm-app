@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
@@ -5,13 +6,13 @@ export const Nav = styled.nav`
     top: 0;
     left: 0;
     height: 100%;
-    width: ${(props) => (props.isMini ? '4rem' : '16rem')};
+    width: ${(props) => (props.$isMini ? '4rem' : '16rem')};
     border-right: 1px solid ${(props) => props.theme.border};
     transition: transform 0.3s, width 0.3s;
     background-color: ${(props) => props.theme.background};
 
     ${(props) =>
-        props.isOpen
+        props.$isOpen
             ? 'transform: translateX(0);'
             : 'transform: translateX(-100%);'}
 
@@ -43,7 +44,8 @@ export const MiniButton = styled.button`
     border: none;
     font-size: 1.5rem;
     color: ${(props) => props.theme.color};
-    transform: ${(props) => (props.isMini ? 'rotate(180deg)' : 'rotate(0deg)')};
+    transform: ${(props) =>
+        props.$isMini ? 'rotate(180deg)' : 'rotate(0deg)'};
     transition: transform 0.3s;
 
     @media (min-width: 768px) {
@@ -58,15 +60,14 @@ export const Menu = styled.div`
     background-color: ${(props) => props.theme.background};
 `;
 
-export const MenuItem = styled.a`
+export const MenuItem = styled(Link)`
     display: flex;
     align-items: center;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    color: ${(props) =>
-        props.active ? props.theme.primary : props.theme.color};
+    color: ${(props) => (props.$active ? '#000' : props.theme.color)};
     background-color: ${(props) =>
-        props.active ? props.theme.primaryLight : 'transparent'};
+        props.$active ? props.theme.secondary : 'transparent'};
     border-radius: 0.25rem;
     transition: background-color 0.2s, color 0.2s;
     text-decoration: none;
@@ -77,11 +78,11 @@ export const MenuItem = styled.a`
     }
 
     svg {
-        margin-right: ${(props) => (props.isMini ? '0' : '0.5rem')};
+        margin-right: ${(props) => (props.$isMini ? '0' : '0.5rem')};
         font-size: 1.5rem;
     }
 
     span {
-        display: ${(props) => (props.isMini ? 'none' : 'block')};
+        display: ${(props) => (props.$isMini ? 'none' : 'block')};
     }
 `;

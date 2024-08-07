@@ -3,18 +3,27 @@ import { Provider } from 'react-redux';
 
 import { store } from './store';
 
-import { RouterProvider, ThemeProvider } from './providers';
+import {
+    AuthProvider,
+    RouterProvider,
+    ThemeProvider,
+    ToastProvider,
+} from './providers';
 
 import GlobalStyle from './styles/GlobalStyle';
 
 const App = () => {
     return (
-        <Provider store={store}>
-            <ThemeProvider>
-                <GlobalStyle />
-                <RouterProvider />
-            </ThemeProvider>
-        </Provider>
+        <ToastProvider>
+            <Provider store={store}>
+                <ThemeProvider>
+                    <AuthProvider>
+                        <GlobalStyle />
+                        <RouterProvider />
+                    </AuthProvider>
+                </ThemeProvider>
+            </Provider>
+        </ToastProvider>
     );
 };
 

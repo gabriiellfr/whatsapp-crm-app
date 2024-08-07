@@ -13,7 +13,7 @@ export const Title = styled.h1`
     color: ${(props) => props.theme.primary};
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${(props) => props.theme.spacingMedium};

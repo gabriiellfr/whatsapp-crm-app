@@ -3,8 +3,14 @@
 import { AppLayout } from '../layouts';
 import { HomePage } from '../pages/app';
 
+import { AuthGuard } from '../guards/auth-guard';
+
 const appRoutes = {
-    element: <AppLayout />,
+    element: (
+        <AuthGuard>
+            <AppLayout />
+        </AuthGuard>
+    ),
     children: [
         {
             element: <HomePage />,
