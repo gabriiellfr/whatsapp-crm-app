@@ -6,10 +6,9 @@ export const Nav = styled.nav`
     left: 0;
     height: 100%;
     width: ${(props) => (props.isMini ? '4rem' : '16rem')};
-    background-color: #fff;
-    border-right: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid ${(props) => props.theme.border};
     transition: transform 0.3s, width 0.3s;
+    background-color: ${(props) => props.theme.background};
 
     ${(props) =>
         props.isOpen
@@ -29,7 +28,7 @@ export const CloseButton = styled.button`
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #333;
+    color: ${(props) => props.theme.color};
 
     @media (min-width: 768px) {
         display: none;
@@ -43,7 +42,7 @@ export const MiniButton = styled.button`
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #333;
+    color: ${(props) => props.theme.color};
     transform: ${(props) => (props.isMini ? 'rotate(180deg)' : 'rotate(0deg)')};
     transition: transform 0.3s;
 
@@ -56,6 +55,7 @@ export const Menu = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    background-color: ${(props) => props.theme.background};
 `;
 
 export const MenuItem = styled.a`
@@ -63,16 +63,17 @@ export const MenuItem = styled.a`
     align-items: center;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    color: ${(props) => (props.active ? '#4a90e2' : '#333')};
-    background-color: ${(props) => (props.active ? '#e6f7ff' : 'transparent')};
+    color: ${(props) =>
+        props.active ? props.theme.primary : props.theme.color};
+    background-color: ${(props) =>
+        props.active ? props.theme.primaryLight : 'transparent'};
     border-radius: 0.25rem;
     transition: background-color 0.2s, color 0.2s;
-
     text-decoration: none;
 
     &:hover {
-        background-color: #e6f7ff;
-        color: #4a90e2;
+        background-color: ${(props) => props.theme.primaryLight};
+        color: ${(props) => props.theme.primary};
     }
 
     svg {

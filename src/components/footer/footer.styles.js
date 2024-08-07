@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-    background-color: #4a90e2;
-    color: #333;
+    color: ${(props) => props.theme.color};
     text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid ${(props) => props.theme.border};
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: ${(props) => props.theme.paddingSmall};
 `;
 
 export const FooterText = styled.p`
     font-size: 0.875rem;
+    margin: 0;
 `;

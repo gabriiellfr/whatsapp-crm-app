@@ -5,10 +5,11 @@ import {
     Navigate,
 } from 'react-router-dom';
 
-import appRoutes from '../routes/app.routes';
+import { appRoutes, authRoutes } from '../routes';
 
 const router = createBrowserRouter([
     appRoutes,
+    authRoutes,
     { path: '*', element: <Navigate to="/" replace /> },
 ]);
 

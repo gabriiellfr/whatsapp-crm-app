@@ -4,9 +4,13 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #4a90e2;
-    color: #333;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid ${(props) => props.theme.border};
+
+    color: ${(props) => props.theme.color};
+    padding-top: ${(props) => props.theme.paddingSmall};
+    padding-bottom: ${(props) => props.theme.paddingSmall};
+    padding-left: ${(props) => props.theme.paddingMedium};
+    padding-right: ${(props) => props.theme.paddingMedium};
 `;
 
 export const HamburgerButton = styled.button`
@@ -14,7 +18,7 @@ export const HamburgerButton = styled.button`
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #fff;
+    color: ${(props) => props.theme.color};
 
     @media (min-width: 768px) {
         display: none;
@@ -26,14 +30,17 @@ export const Title = styled.h1`
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
+    color: ${(props) => props.theme.color};
+    margin: 0;
 `;
 
 export const UserAvatar = styled.div`
-    margin-right: 0.5rem;
-    width: 3rem;
-    height: 3rem;
+    margin-right: ${(props) => props.theme.paddingSmall};
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     overflow: hidden;
+
     img {
         width: 100%;
         height: 100%;
